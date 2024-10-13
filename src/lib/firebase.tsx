@@ -1,5 +1,6 @@
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -13,9 +14,12 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
+const auth = getAuth(app);
 
-export const uploadCSVToFirebase = async (file:File) => {
+export const uploadCSVToFirebase = async (file: File) => {
   const storageRef = ref(storage, `csv-files/${file.name}`);
   await uploadBytes(storageRef, file);
   console.log("File uploaded to Firebase Storage");
 };
+
+export { auth };
