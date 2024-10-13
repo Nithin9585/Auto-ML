@@ -24,9 +24,12 @@ export default function Navbar() {
   <Link href="/about" className="transition  duration-300 ease-in-out relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-purple-900 after:to-purple-200 after:scale-x-0 after:origin-left after:transition-transform after:duration-500 hover:after:scale-x-100 hover:-translate-y-1">About</Link>
   <Link href="/Contact" className="transition  duration-300 ease-in-out relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-purple-900 after:to-purple-200 after:scale-x-0 after:origin-left after:transition-transform after:duration-500 hover:after:scale-x-100 hover:-translate-y-1">Contact</Link>
 
-<div>
+<div><Link href="/Login">
     <Button className="mx-1 ">Login</Button>
+    </Link>
+    <Link href="/Sign-up">
     <Button className="mx-1 ">Sign up</Button>
+    </Link>
   </div>
   <ModeToggle />
 </div>
@@ -48,8 +51,12 @@ export default function Navbar() {
                     <Link href="/about" className=" hover:text-purple-300">About</Link>
                     <Link href="/Contact" className=" hover:text-purple-300">Contact</Link>
                     <div className="flex justify-center absolute bottom-0 left-0 w-full p-4">
+                    <Link href="/Login">
                       <Button className="mx-3 border-purple-600 hover:bg-purple-400 text-purple-100" variant="outline">Login</Button>
+                      </Link>
+                      <Link href="/Sign-up">
                       <Button className="mx-3 border-purple-600 hover:bg-purple-400 text-purple-400" variant="outline">Sign up</Button>
+                      </Link>
                     </div>
                   </div>
                 </SheetDescription>
