@@ -1,5 +1,5 @@
 import { getStorage, ref, uploadBytes } from "firebase/storage";
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
@@ -12,7 +12,7 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
-const app = initializeApp(firebaseConfig);
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp(); 
 const storage = getStorage(app);
 const auth = getAuth(app);
 
@@ -22,4 +22,4 @@ export const uploadCSVToFirebase = async (file: File) => {
   console.log("File uploaded to Firebase Storage");
 };
 
-export { auth };
+export {app,auth};

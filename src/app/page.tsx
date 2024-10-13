@@ -1,8 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import LoginForm from '@/components/ui/login';
-import SignUpForm from '@/components/ui/signup';
+
 import Footer from '@/components/Footer';
 export default function Home() {
   return (
@@ -13,8 +12,7 @@ export default function Home() {
         </Button>
         </Link>
 
-        <LoginForm/>
-        <SignUpForm/>
+       
       <Footer/>
     </div>
   );
