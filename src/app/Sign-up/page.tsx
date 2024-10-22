@@ -40,19 +40,19 @@ const SignUpForm: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="p-8 rounded-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
-        <div className='flex justify-between mb-6'>
-          <div className="mt-4">
-            <Button className='w-full bg-red-500 text-white' onClick={handleGoogleSignUp}>
-              Sign up with Google
+    <div className="flex items-center justify-center min-h-screen p-4 md:p-8">
+      <div className=" p-6 md:p-8 rounded-lg w-full max-w-md">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 ">Sign Up</h2>
+        <div className='flex flex-col gap-4 mb-6'>
+          <div>
+            <Button className='w-full bg-red-500 text-white flex justify-center items-center' onClick={handleGoogleSignUp}>
+              <span>Login with Google</span>
               <FontAwesomeIcon icon={faGoogle} className="ml-2" />
             </Button>
           </div>
-          <div className="mt-4">
-            <Button className='w-full bg-gray-800 text-white' onClick={handleGithubSignUp}>
-              Sign up with GitHub
+          <div>
+            <Button className='w-full bg-gray-800 text-white flex justify-center items-center' onClick={handleGithubSignUp}>
+              <span>Login with GitHub</span>
               <FontAwesomeIcon icon={faGithub} className="ml-2" />
             </Button>
           </div>

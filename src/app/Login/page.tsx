@@ -7,10 +7,6 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '@/lib/firebase';
 import { useRouter } from 'next/navigation'; 
 
-//nithin@gmail.com
-//abcdefg
-
-
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -51,19 +47,19 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
       <div className="bg-white-100 p-8 rounded-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
-        <div className='flex justify-between mb-6'>
-          <div className="mt-4">
-            <Button className='w-full bg-red-500 text-white' onClick={handleGoogleLogin}>
-              Login with Google
+        <div className='flex flex-col gap-4 mb-6'>
+          <div>
+            <Button className='w-full bg-red-500 text-white flex justify-center items-center' onClick={handleGoogleLogin}>
+              <span>Login with Google</span>
               <FontAwesomeIcon icon={faGoogle} className="ml-2" />
             </Button>
           </div>
-          <div className="mt-4">
-            <Button className='w-full bg-gray-800 text-white' onClick={handleGithubLogin}>
-              Login with GitHub
+          <div>
+            <Button className='w-full bg-gray-800 text-white flex justify-center items-center' onClick={handleGithubLogin}>
+              <span>Login with GitHub</span>
               <FontAwesomeIcon icon={faGithub} className="ml-2" />
             </Button>
           </div>
