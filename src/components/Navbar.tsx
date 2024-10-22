@@ -41,10 +41,7 @@ export default function Navbar() {
           <Link href="/" className="transition duration-300 ease-in-out relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-purple-900 after:to-purple-200 after:scale-x-0 after:origin-left after:transition-transform after:duration-500 hover:after:scale-x-100 hover:-translate-y-1">
             Home
           </Link>
-          <Link href="/blog" className="transition duration-300 ease-in-out relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-purple-900 after:to-purple-200 after:scale-x-0 after:origin-left after:transition-transform after:duration-500 hover:after:scale-x-100 hover:-translate-y-1">
-            Blog
-          </Link>
-          <Link href="/about" className="transition duration-300 ease-in-out relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-purple-900 after:to-purple-200 after:scale-x-0 after:origin-left after:transition-transform after:duration-500 hover:after:scale-x-100 hover:-translate-y-1">
+          <Link href="/About" className="transition duration-300 ease-in-out relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-purple-900 after:to-purple-200 after:scale-x-0 after:origin-left after:transition-transform after:duration-500 hover:after:scale-x-100 hover:-translate-y-1">
             About
           </Link>
           <Link href="/Contact" className="transition duration-300 ease-in-out relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-purple-900 after:to-purple-200 after:scale-x-0 after:origin-left after:transition-transform after:duration-500 hover:after:scale-x-100 hover:-translate-y-1">
@@ -89,8 +86,7 @@ export default function Navbar() {
               <SheetDescription>
                 <div className="flex pt-10 flex-col gap-8 items-center">
                   <Link href="/" className="hover:text-purple-300">Home</Link>
-                  <Link href="/blog" className="hover:text-purple-300">Blog</Link>
-                  <Link href="/about" className="hover:text-purple-300">About</Link>
+                  <Link href="/About" className="hover:text-purple-300">About</Link>
                   <Link href="/Contact" className="hover:text-purple-300">Contact</Link>
                   <div className="flex justify-center absolute bottom-0 left-0 w-full p-4">
                     {!userSession && (
