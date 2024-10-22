@@ -39,7 +39,7 @@ export default function UploadCSV() {
     };
     return (
         <div className="flex flex-col items-center justify-center h-screen p-4">
-            <div className=" p-6 rounded-lg shadow-lg w-full max-w-md">
+            <div className=" p-6 rounded-lg  w-full max-w-md">
                 <h1 className="mb-6 text-3xl font-semibold  text-center">Upload CSV File</h1>
     
                 <Message message={message} isError={isError} />

@@ -95,7 +95,7 @@ export default function Navbar() {
                           <Button className="mx-3 border-purple-600 hover:bg-purple-400 text-purple-100" variant="outline">Login</Button>
                         </Link>
                         <Link href="/Sign-up">
-                          <Button className="mx-3 border-purple-600 hover:bg-purple-400 text-purple-400" variant="outline">Sign up</Button>
+                          <Button className="mx-3 border-purple-600 hover:bg-purple-400 text-purple-100" variant="outline">Sign up</Button>
                         </Link>
                       </>
                     )}
