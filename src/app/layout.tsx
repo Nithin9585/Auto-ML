@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Footer from '@/components/Footer';
 import "./globals.css";
 
 
@@ -20,6 +20,8 @@ export default function RootLayout({
     <Navbar/>
         {children}
         </ThemeProvider>
+        <Footer />
+
        
       </body>
     </html>

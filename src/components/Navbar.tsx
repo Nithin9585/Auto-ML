@@ -13,14 +13,21 @@ import { ModeToggle } from './ui/theme-btn';
 import { auth } from '@/lib/firebase';
 import { signOut } from 'firebase/auth'; 
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function Navbar() {
   const router = useRouter(); 
-  const userSession = sessionStorage.getItem('user');
+  const [userSession, setUserSession] = useState<string | null>(null);
 
-  if (!userSession) {
-    router.push('/Sign-up');
-  }
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const session = sessionStorage.getItem('user');
+      setUserSession(session);
+      if (!session) {
+        router.push('/Sign-up');
+      }
+    }
+  }, [router]);
 
   return (
     <nav className="bg-background/50 flex-row sticky top-0 backdrop-blur border-b p-4 z-50">
@@ -56,6 +63,8 @@ export default function Navbar() {
           {userSession && (
             <Button className="mx-1" onClick={() => signOut(auth)}>Logout</Button>
           )}
+                    <ModeToggle />
+
         </div>
       <div className="md:hidden">
         <Sheet>

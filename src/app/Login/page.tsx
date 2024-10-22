@@ -17,7 +17,7 @@ const LoginForm: React.FC = () => {
   const [loading, setLoading] = useState(''); 
   const [error, setError] = useState(''); 
   
-  const [signInWithEmailAndPassword, userCredential, loadingSignInError] = useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   
   const router = useRouter(); 
 
