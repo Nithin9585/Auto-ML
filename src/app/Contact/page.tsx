@@ -1,6 +1,7 @@
 // pages/contact-us.js
 
 import React from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 const ContactUs = () => {
@@ -17,7 +18,7 @@ const ContactUs = () => {
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {images.map((src, index) => (
           <div key={index} className="shadow-md rounded-lg overflow-hidden">
-            <img src={src} alt={`Pic ${index + 1}`} className="w-full h-48 object-cover" />
+            <Image src={src} alt={`Pic ${index + 1}`} width={500} height={300} className="w-full h-48 object-cover" />
             <div className="p-4">
               <h3 className="text-lg font-semibold">Name {index + 1}</h3>
               <p className="text-gray-600">Role {index + 1}</p>

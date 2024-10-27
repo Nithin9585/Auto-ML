@@ -9,7 +9,7 @@ export default function Home() {
         <p className="text-lg text-gray-500 mt-4">Discover amazing features and get started today!</p>
       </header>
       <main className="flex flex-col items-center justify-center flex-1 px-4">
-        <div className="max-w-md bg-white  rounded-lg p-8">
+        <div className="max-w-md border border-purple-600 border-rounded-sm  rounded-lg p-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Train Your Model</h2>
           <p className="text-gray-500 mb-4">
             Upload your CSV data and let AutoML handle the rest.

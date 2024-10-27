@@ -12,7 +12,7 @@ const SignUpForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [createUserWithEmailAndPassword, , loading, error] = useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -52,8 +52,8 @@ const SignUpForm: React.FC = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4 md:p-8">
-      <div className=" p-6 md:p-8 rounded-lg w-full max-w-md">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 ">Sign Up</h2>
+      <div className="p-6 md:p-8 rounded-lg w-full max-w-md">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">Sign Up</h2>
         <div className='flex flex-col gap-4 mb-6'>
           <div>
             <Button className='w-full bg-red-500 text-white flex justify-center items-center' onClick={handleGoogleSignUp}>
