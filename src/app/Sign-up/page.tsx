@@ -13,12 +13,10 @@ const SignUpForm: React.FC = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [createUserWithEmailAndPassword, , loading, error] = useCreateUserWithEmailAndPassword(auth);
-  const [userSession, setUserSession] = useState<string | null>(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        setUserSession(user.uid);
         router.push('/');  
       }
     });
