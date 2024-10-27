@@ -12,8 +12,9 @@ const SignUpForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-
-  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+  
+  // Remove user from the destructuring assignment
+  const [createUserWithEmailAndPassword, loading, error] = useCreateUserWithEmailAndPassword(auth);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -34,7 +35,7 @@ const SignUpForm: React.FC = () => {
 
     try {
       const res = await createUserWithEmailAndPassword(email, password);
-      
+      // Check if response is defined and contains user
       if (res && res.user) {
         console.log('User created:', res.user); // Handle user creation success
       } else {
@@ -45,7 +46,7 @@ const SignUpForm: React.FC = () => {
       setPassword('');
       setConfirmPassword(''); 
     } catch (e) {
-      console.error(e); 
+      console.error(e);
     }
   };
 
