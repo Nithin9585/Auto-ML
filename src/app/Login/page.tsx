@@ -1,40 +1,45 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '../../components/ui/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '@/lib/firebase';
-import { useRouter } from 'next/navigation'; 
+import { useRouter } from 'next/navigation';
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(''); 
-  const [error, setError] = useState(''); 
-  
-  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
-  
-  const router = useRouter(); 
+  const [loading, setLoading] = useState('');
+  const [error, setError] = useState('');
+
+  const [signInWithEmailAndPassword, user] = useSignInWithEmailAndPassword(auth);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user) {
+      router.push('/');
+    }
+  }, [user, router]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading('Logging In...'); 
+    setLoading('Logging In...');
     setError('');
 
     try {
-      const res = await signInWithEmailAndPassword(email, password);
-      console.log(res);
+      await signInWithEmailAndPassword(email, password);
       console.log("Login successful");
-
+      
       setEmail('');
       setPassword('');
-      setLoading(''); 
-      router.push('/');
+      setLoading('');
+      alert('You are signed in.');
+      router.push('/Home');
     } catch (error) {
       setError('Login failed. Please check your email and password.');
       console.error(error);
-      setLoading(''); 
+      setLoading('');
     }
   };
 
