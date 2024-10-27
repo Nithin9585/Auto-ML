@@ -12,6 +12,7 @@ const SignUpForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
   const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
 
   useEffect(() => {
@@ -33,12 +34,18 @@ const SignUpForm: React.FC = () => {
 
     try {
       const res = await createUserWithEmailAndPassword(email, password);
-      console.log({ res });
+      
+      if (res && res.user) {
+        console.log('User created:', res.user); // Handle user creation success
+      } else {
+        console.error("User creation failed or returned no user object");
+      }
+
       setEmail('');
       setPassword('');
       setConfirmPassword(''); 
     } catch (e) {
-      console.error(e);
+      console.error(e); 
     }
   };
 
