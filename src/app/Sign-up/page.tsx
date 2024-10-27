@@ -13,7 +13,7 @@ const SignUpForm: React.FC = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   
-  // Remove user from the destructuring assignment
+  
   const [createUserWithEmailAndPassword, loading, error] = useCreateUserWithEmailAndPassword(auth);
 
   useEffect(() => {
@@ -35,9 +35,8 @@ const SignUpForm: React.FC = () => {
 
     try {
       const res = await createUserWithEmailAndPassword(email, password);
-      // Check if response is defined and contains user
       if (res && res.user) {
-        console.log('User created:', res.user); // Handle user creation success
+        console.log('User created:', res.user); 
       } else {
         console.error("User creation failed or returned no user object");
       }
@@ -119,11 +118,11 @@ const SignUpForm: React.FC = () => {
               placeholder="********"
             />
           </div>
-          <Button className='w-full' type="submit" disabled={loading}>
+          <Button className='w-full' type="submit" >
             {loading ? "Signing Up..." : "Sign Up"}
           </Button>
         </form>
-        {error && <p className="text-red-500">{error.message}</p>}
+        {error && <p className="text-red-500">{error}</p>}
       </div>
     </div>
   );
