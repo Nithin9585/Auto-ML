@@ -68,7 +68,7 @@ export default function UploadCSV() {
             setUploadedFiles(files);
         } catch (error) {
             console.error("Error uploading file:", error);
-            setMessage("An error occurred while uploading the file.");
+            setMessage("An error occurred while fetching   files will be corrected soon.");
             setIsError(true);
         }
     };
