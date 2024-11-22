@@ -35,7 +35,7 @@ const LoginForm: React.FC = () => {
       setPassword('');
       setLoading('');
       alert('You are signed in.');
-      router.push('/Home');
+      router.push('/');
     } catch (error) {
       setError('Login failed. Please check your email and password.');
       console.error(error);
