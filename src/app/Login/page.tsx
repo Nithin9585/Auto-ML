@@ -4,16 +4,15 @@ import { Button } from '../../components/ui/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { auth } from '@/lib/firebase';
+import { auth } from '@/lib/firebase'; // Make sure auth is correctly initialized here
 import { useRouter } from 'next/navigation';
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState('');
-  const [error, setError] = useState('');
 
-  const [signInWithEmailAndPassword, user] = useSignInWithEmailAndPassword(auth);
+  // Use the hook to sign in
+  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
   const router = useRouter();
 
   useEffect(() => {
@@ -24,23 +23,8 @@ const LoginForm: React.FC = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading('Logging In...');
-    setError('');
 
-    try {
-      await signInWithEmailAndPassword(email, password);
-      console.log("Login successful");
-      
-      setEmail('');
-      setPassword('');
-      setLoading('');
-      alert('You are signed in.');
-      router.push('/');
-    } catch (error) {
-      setError('Login failed. Please check your email and password.');
-      console.error(error);
-      setLoading('');
-    }
+    signInWithEmailAndPassword(email, password);
   };
 
   const handleGoogleLogin = () => {
@@ -99,10 +83,10 @@ const LoginForm: React.FC = () => {
               placeholder="********"
             />
           </div>
-          <Button className='w-full' type="submit" disabled={loading === 'Logging In...'}>
-            {loading || 'Login'}
+          <Button className='w-full' type="submit" disabled={loading}>
+            {loading ? 'Logging In...' : 'Login'}
           </Button>
-          {error && <p className="text-red-500 mt-2">{error}</p>}
+          {error && <p className="text-red-500 mt-2">{error.message}</p>}
         </form>
       </div>
     </div>
